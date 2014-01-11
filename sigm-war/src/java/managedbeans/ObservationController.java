@@ -3,7 +3,7 @@ package managedbeans;
 import entities.Observation;
 import managedbeans.util.JsfUtil;
 import managedbeans.util.PaginationHelper;
-import sessionbeans.ObservationFacade;
+import sessionbeans.ObservationFacadeLocal;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -25,7 +25,7 @@ public class ObservationController implements Serializable {
     private Observation current;
     private DataModel items = null;
     @EJB
-    private sessionbeans.ObservationFacade ejbFacade;
+    private ObservationFacadeLocal ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
@@ -40,7 +40,7 @@ public class ObservationController implements Serializable {
         return current;
     }
 
-    private ObservationFacade getFacade() {
+    private ObservationFacadeLocal getFacade() {
         return ejbFacade;
     }
 

@@ -3,7 +3,7 @@ package managedbeans;
 import entities.Thesis;
 import managedbeans.util.JsfUtil;
 import managedbeans.util.PaginationHelper;
-import sessionbeans.ThesisFacade;
+import sessionbeans.ThesisFacadeLocal;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -25,7 +25,7 @@ public class ThesisController implements Serializable {
     private Thesis current;
     private DataModel items = null;
     @EJB
-    private sessionbeans.ThesisFacade ejbFacade;
+    private ThesisFacadeLocal ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
@@ -40,7 +40,7 @@ public class ThesisController implements Serializable {
         return current;
     }
 
-    private ThesisFacade getFacade() {
+    private ThesisFacadeLocal getFacade() {
         return ejbFacade;
     }
 

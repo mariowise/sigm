@@ -3,7 +3,7 @@ package managedbeans;
 import entities.Inscription;
 import managedbeans.util.JsfUtil;
 import managedbeans.util.PaginationHelper;
-import sessionbeans.InscriptionFacade;
+import sessionbeans.InscriptionFacadeLocal;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -25,7 +25,7 @@ public class InscriptionController implements Serializable {
     private Inscription current;
     private DataModel items = null;
     @EJB
-    private sessionbeans.InscriptionFacade ejbFacade;
+    private InscriptionFacadeLocal ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
@@ -40,7 +40,7 @@ public class InscriptionController implements Serializable {
         return current;
     }
 
-    private InscriptionFacade getFacade() {
+    private InscriptionFacadeLocal getFacade() {
         return ejbFacade;
     }
 

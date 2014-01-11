@@ -3,7 +3,7 @@ package managedbeans;
 import entities.ThesisParticipation;
 import managedbeans.util.JsfUtil;
 import managedbeans.util.PaginationHelper;
-import sessionbeans.ThesisParticipationFacade;
+import sessionbeans.ThesisParticipationFacadeLocal;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -25,7 +25,7 @@ public class ThesisParticipationController implements Serializable {
     private ThesisParticipation current;
     private DataModel items = null;
     @EJB
-    private sessionbeans.ThesisParticipationFacade ejbFacade;
+    private ThesisParticipationFacadeLocal ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
@@ -40,7 +40,7 @@ public class ThesisParticipationController implements Serializable {
         return current;
     }
 
-    private ThesisParticipationFacade getFacade() {
+    private ThesisParticipationFacadeLocal getFacade() {
         return ejbFacade;
     }
 

@@ -3,7 +3,7 @@ package managedbeans;
 import entities.Role;
 import managedbeans.util.JsfUtil;
 import managedbeans.util.PaginationHelper;
-import sessionbeans.RoleFacade;
+import sessionbeans.RoleFacadeLocal;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -25,7 +25,7 @@ public class RoleController implements Serializable {
     private Role current;
     private DataModel items = null;
     @EJB
-    private sessionbeans.RoleFacade ejbFacade;
+    private RoleFacadeLocal ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
@@ -40,7 +40,7 @@ public class RoleController implements Serializable {
         return current;
     }
 
-    private RoleFacade getFacade() {
+    private RoleFacadeLocal getFacade() {
         return ejbFacade;
     }
 

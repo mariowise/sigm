@@ -3,7 +3,7 @@ package managedbeans;
 import entities.Term;
 import managedbeans.util.JsfUtil;
 import managedbeans.util.PaginationHelper;
-import sessionbeans.TermFacade;
+import sessionbeans.TermFacadeLocal;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -25,7 +25,7 @@ public class TermController implements Serializable {
     private Term current;
     private DataModel items = null;
     @EJB
-    private sessionbeans.TermFacade ejbFacade;
+    private TermFacadeLocal ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
@@ -40,7 +40,7 @@ public class TermController implements Serializable {
         return current;
     }
 
-    private TermFacade getFacade() {
+    private TermFacadeLocal getFacade() {
         return ejbFacade;
     }
 

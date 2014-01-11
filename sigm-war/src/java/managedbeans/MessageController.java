@@ -3,7 +3,7 @@ package managedbeans;
 import entities.Message;
 import managedbeans.util.JsfUtil;
 import managedbeans.util.PaginationHelper;
-import sessionbeans.MessageFacade;
+import sessionbeans.MessageFacadeLocal;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -25,7 +25,7 @@ public class MessageController implements Serializable {
     private Message current;
     private DataModel items = null;
     @EJB
-    private sessionbeans.MessageFacade ejbFacade;
+    private MessageFacadeLocal ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
@@ -40,7 +40,7 @@ public class MessageController implements Serializable {
         return current;
     }
 
-    private MessageFacade getFacade() {
+    private MessageFacadeLocal getFacade() {
         return ejbFacade;
     }
 

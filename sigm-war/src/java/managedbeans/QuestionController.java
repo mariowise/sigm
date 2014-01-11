@@ -3,7 +3,7 @@ package managedbeans;
 import entities.Question;
 import managedbeans.util.JsfUtil;
 import managedbeans.util.PaginationHelper;
-import sessionbeans.QuestionFacade;
+import sessionbeans.QuestionFacadeLocal;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -25,7 +25,7 @@ public class QuestionController implements Serializable {
     private Question current;
     private DataModel items = null;
     @EJB
-    private sessionbeans.QuestionFacade ejbFacade;
+    private QuestionFacadeLocal ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
@@ -40,7 +40,7 @@ public class QuestionController implements Serializable {
         return current;
     }
 
-    private QuestionFacade getFacade() {
+    private QuestionFacadeLocal getFacade() {
         return ejbFacade;
     }
 

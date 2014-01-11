@@ -3,7 +3,7 @@ package managedbeans;
 import entities.UserType;
 import managedbeans.util.JsfUtil;
 import managedbeans.util.PaginationHelper;
-import sessionbeans.UserTypeFacade;
+import sessionbeans.UserTypeFacadeLocal;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -25,7 +25,7 @@ public class UserTypeController implements Serializable {
     private UserType current;
     private DataModel items = null;
     @EJB
-    private sessionbeans.UserTypeFacade ejbFacade;
+    private UserTypeFacadeLocal ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
@@ -40,7 +40,7 @@ public class UserTypeController implements Serializable {
         return current;
     }
 
-    private UserTypeFacade getFacade() {
+    private UserTypeFacadeLocal getFacade() {
         return ejbFacade;
     }
 

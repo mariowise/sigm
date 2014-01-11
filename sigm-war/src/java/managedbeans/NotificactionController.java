@@ -3,7 +3,7 @@ package managedbeans;
 import entities.Notificaction;
 import managedbeans.util.JsfUtil;
 import managedbeans.util.PaginationHelper;
-import sessionbeans.NotificactionFacade;
+import sessionbeans.NotificactionFacadeLocal;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -25,7 +25,7 @@ public class NotificactionController implements Serializable {
     private Notificaction current;
     private DataModel items = null;
     @EJB
-    private sessionbeans.NotificactionFacade ejbFacade;
+    private NotificactionFacadeLocal ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
@@ -40,7 +40,7 @@ public class NotificactionController implements Serializable {
         return current;
     }
 
-    private NotificactionFacade getFacade() {
+    private NotificactionFacadeLocal getFacade() {
         return ejbFacade;
     }
 

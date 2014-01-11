@@ -3,7 +3,7 @@ package managedbeans;
 import entities.DocumentType;
 import managedbeans.util.JsfUtil;
 import managedbeans.util.PaginationHelper;
-import sessionbeans.DocumentTypeFacade;
+import sessionbeans.DocumentTypeFacadeLocal;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -25,7 +25,7 @@ public class DocumentTypeController implements Serializable {
     private DocumentType current;
     private DataModel items = null;
     @EJB
-    private sessionbeans.DocumentTypeFacade ejbFacade;
+    private DocumentTypeFacadeLocal ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
@@ -40,7 +40,7 @@ public class DocumentTypeController implements Serializable {
         return current;
     }
 
-    private DocumentTypeFacade getFacade() {
+    private DocumentTypeFacadeLocal getFacade() {
         return ejbFacade;
     }
 
