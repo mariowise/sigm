@@ -40,6 +40,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Observation.findByObservationCreatedAt", query = "SELECT o FROM Observation o WHERE o.observationCreatedAt = :observationCreatedAt"),
     @NamedQuery(name = "Observation.findByObservationUpdatedAt", query = "SELECT o FROM Observation o WHERE o.observationUpdatedAt = :observationUpdatedAt")})
 public class Observation implements Serializable {
+    @JoinColumn(name = "ID_USER", referencedColumnName = "ID_USER")
+    @ManyToOne(optional = false)
+    private User idUser;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -151,6 +154,14 @@ public class Observation implements Serializable {
     @Override
     public String toString() {
         return "entities.Observation[ idObservation=" + idObservation + " ]";
+    }
+
+    public User getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(User idUser) {
+        this.idUser = idUser;
     }
     
 }

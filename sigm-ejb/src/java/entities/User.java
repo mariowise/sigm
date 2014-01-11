@@ -56,6 +56,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "User.findByEnrollmentType", query = "SELECT u FROM User u WHERE u.enrollmentType = :enrollmentType"),
     @NamedQuery(name = "User.findByLastEnrollment", query = "SELECT u FROM User u WHERE u.lastEnrollment = :lastEnrollment")})
 public class User implements Serializable {
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUser")
+    private Collection<Observation> observationCollection;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -398,6 +400,15 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "entities.User[ idUser=" + idUser + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Observation> getObservationCollection() {
+        return observationCollection;
+    }
+
+    public void setObservationCollection(Collection<Observation> observationCollection) {
+        this.observationCollection = observationCollection;
     }
     
 }
