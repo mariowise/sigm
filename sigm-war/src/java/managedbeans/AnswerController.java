@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -19,7 +19,7 @@ import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
 @Named("answerController")
-@SessionScoped
+@RequestScoped
 public class AnswerController implements Serializable {
 
     private Answer current;

@@ -6,10 +6,11 @@ import managedbeans.util.PaginationHelper;
 import sessionbeans.UserTypeFacadeLocal;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -19,7 +20,7 @@ import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
 @Named("userTypeController")
-@SessionScoped
+@RequestScoped
 public class UserTypeController implements Serializable {
 
     private UserType current;
@@ -187,7 +188,7 @@ public class UserTypeController implements Serializable {
     public SelectItem[] getItemsAvailableSelectOne() {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
-
+  
     public UserType getUserType(java.lang.Integer id) {
         return ejbFacade.find(id);
     }

@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -17,9 +17,10 @@ import javax.faces.convert.FacesConverter;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import sessionbeans.UserTypeFacadeLocal;
 
 @Named("userController")
-@SessionScoped
+@RequestScoped
 public class UserController implements Serializable {
 
     private User current;
@@ -28,6 +29,9 @@ public class UserController implements Serializable {
     private UserFacadeLocal ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
+    
+    @EJB
+    private UserTypeFacadeLocal ejbUserTypeFacade;
 
     public UserController() {
     }

@@ -88,12 +88,12 @@ public class User implements Serializable {
     @Column(name = "USER_CREATED_AT")
     @Temporal(TemporalType.TIMESTAMP)
     private Date userCreatedAt;
-    @Basic(optional = false)
+    @Basic(optional = true)
     @NotNull
     @Column(name = "USER_UPDATED_AT")
     @Temporal(TemporalType.TIMESTAMP)
     private Date userUpdatedAt;
-    @Basic(optional = false)
+    @Basic(optional = true)
     @NotNull
     @Size(min = 1, max = 40)
     @Column(name = "FIRST_NAME")
@@ -152,20 +152,32 @@ public class User implements Serializable {
     private Collection<ThesisParticipation> thesisParticipationCollection;
 
     public User() {
+        
+        java.util.Date date = new java.util.Date();
+        this.userCreatedAt = (Date) date.clone();
+        this.userUpdatedAt = (Date) date.clone();
     }
 
     public User(Integer idUser) {
         this.idUser = idUser;
+                        
+        java.util.Date date = new java.util.Date();
+        this.userCreatedAt = (Date) date.clone();
+        this.userUpdatedAt = (Date) date.clone();
     }
 
     public User(Integer idUser, String userName, String userPass, String userEmail, short userStatus, Date userCreatedAt, Date userUpdatedAt, String firstName, String lastName, Date birthday) {
+        
+        
+        java.util.Date date = new java.util.Date();
+        
         this.idUser = idUser;
         this.userName = userName;
         this.userPass = userPass;
         this.userEmail = userEmail;
         this.userStatus = userStatus;
-        this.userCreatedAt = userCreatedAt;
-        this.userUpdatedAt = userUpdatedAt;
+        this.userCreatedAt = (Date) date.clone();
+        this.userUpdatedAt = (Date) date.clone();
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthday = birthday;
@@ -216,7 +228,8 @@ public class User implements Serializable {
     }
 
     public void setUserCreatedAt(Date userCreatedAt) {
-        this.userCreatedAt = userCreatedAt;
+        java.util.Date date = new java.util.Date();
+        this.userCreatedAt = (Date) date.clone();
     }
 
     public Date getUserUpdatedAt() {
@@ -224,7 +237,8 @@ public class User implements Serializable {
     }
 
     public void setUserUpdatedAt(Date userUpdatedAt) {
-        this.userUpdatedAt = userUpdatedAt;
+        java.util.Date date = new java.util.Date();
+        this.userUpdatedAt = (Date) date.clone();
     }
 
     public String getFirstName() {
