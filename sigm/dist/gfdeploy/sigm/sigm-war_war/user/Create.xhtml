@@ -23,7 +23,6 @@
                     <h:inputText id="userEmail" value="#{userController.selected.userEmail}" title="#{bundle.CreateUserTitle_userEmail}" required="true" requiredMessage="#{bundle.CreateUserRequiredMessage_userEmail}"/>
                     <h:outputLabel value="#{bundle.CreateUserLabel_userStatus}" for="userStatus" />
                     <h:selectOneMenu id="userStatus" value="#{userController.selected.userStatus}" title="#{bundle.CreateUserTitle_userStatus}" required="true" requiredMessage="#{bundle.CreateUserRequiredMessage_userStatus}">
-                        <f:selectItem itemValue="" itemLabel="---" />
                         <f:selectItem itemValue="0" itemLabel="Activado" />
                         <f:selectItem itemValue="1" itemLabel="Desactivado" />	   							
                     </h:selectOneMenu>	
@@ -50,7 +49,6 @@
                     <h:outputLabel value="#{bundle.CreateUserLabel_enrollmentType}" for="enrollmentType" />
                     
                      <h:selectOneMenu id="enrollmentType" value="#{userController.selected.enrollmentType}" title="#{bundle.CreateUserTitle_enrollmentType}" required="true">
-                        <f:selectItem itemValue="" itemLabel="---" />
                         <f:selectItem itemValue="Contrato" itemLabel="Contrato" />
                         <f:selectItem itemValue="Matricula" itemLabel="Matricula" />	   							
                     </h:selectOneMenu>	
